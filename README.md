@@ -1,5 +1,5 @@
 # How to launch the project
-1) Install the project via `pip`: `pip install -e .`
+1) Install the project via `pip`: `pip install .`
 > Next part is WIP
 2) 
     - Launch the project with `spaceship launch` (try `spaceship launch --help` for additional setup)
