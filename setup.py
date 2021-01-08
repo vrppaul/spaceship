@@ -5,7 +5,7 @@ setup(
     name="spaceship",
     version="0.0.0",
     description="Cosmic web-ecosystem",
-    install_requires=["wheel", "setuptools"],
+    setup_requires=["wheel", "setuptools"],
     packages=find_packages(),
     entry_points="""
     [console_scripts]
