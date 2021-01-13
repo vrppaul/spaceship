@@ -16,9 +16,9 @@
     
     
 # 🔧 Developing the project
-To build and run the project in an editable mode: 
+To build and run the project in the editable mode: 
 1) create new virtual environment `python3 -m venv venv` and activate it `source venv/bin/activate`
-2) Install the project in an editable mode from the project root `pip install -e .`
+2) Install the project in the editable mode from the project root `pip install -e .`
 
 
 ## List of emojies to prettify commits
