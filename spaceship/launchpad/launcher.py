@@ -3,6 +3,8 @@ import logging
 import sys
 import time
 
+from spaceship.hull.server.util import get_server
+
 
 def _initiate_countdown(countdown: int, logger: logging.Logger) -> None:
     logger.info("Activate main engine hydrogen burnoff system")
@@ -25,3 +27,4 @@ def launch(*, parser: argparse.ArgumentParser, logger: logging.Logger) -> None:
     if countdown:
         _initiate_countdown(countdown, logger)
     logger.info("Solid rocket booster ignition and liftoff!")
+    get_server().run_server()
