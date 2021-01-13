@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 
-class ServerInterface(ABC):
+class BaseServer(ABC):
     @abstractmethod
     def run_server(self) -> None:
         pass

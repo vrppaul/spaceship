@@ -4,6 +4,10 @@ from setuptools import find_packages, setup
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
+DEPENDENCIES = [
+    "wheel", "setuptools",
+    "dependency-injector", "PyYAML"
+]
 
 setup(
     author="Pavel Paranin",
@@ -13,7 +17,7 @@ setup(
     description="Cosmic web-ecosystem",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    setup_requires=["wheel", "setuptools"],
+    setup_requires=DEPENDENCIES,
     packages=find_packages(),
     entry_points="""
     [console_scripts]
