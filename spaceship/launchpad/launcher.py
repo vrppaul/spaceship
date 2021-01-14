@@ -1,14 +1,9 @@
 import argparse
 import logging
-import os
 import sys
 import time
-from typing import Optional
 
-from spaceship.hull.server.util import get_server, set_hull_with_config
-
-
-DEFAULT_SETTINGS_FILENAME = "config.yaml"
+from spaceship.hull import get_config_file_path, get_server, set_hull_with_config, DEFAULT_SETTINGS_FILENAME
 
 
 def _initiate_countdown(countdown: int, logger: logging.Logger) -> None:
@@ -25,19 +20,6 @@ def _initiate_countdown(countdown: int, logger: logging.Logger) -> None:
     time.sleep(1)
 
 
-def _get_config_file_path(path: Optional[str], logger: logging.Logger) -> str:
-    if not path:
-        path = os.path.join(os.path.abspath(os.getcwd()), DEFAULT_SETTINGS_FILENAME)
-        logger.info("No config path was provided. Trying default %s.", path)
-    if os.path.isdir(path):
-        logger.error("Specified path %s is a folder. You must provide a path to a config file.", path)
-        sys.exit(1)
-    if not os.path.exists(path):
-        logger.error("No configuration file was found at given path %s.", path)
-        sys.exit(1)
-    return path
-
-
 def launch(*, parser: argparse.ArgumentParser, logger: logging.Logger) -> None:
     parser.add_argument("--countdown", nargs="?", type=int, const=10,
                         help="Count before the start. Default count is %(const)s.")
@@ -47,7 +29,7 @@ def launch(*, parser: argparse.ArgumentParser, logger: logging.Logger) -> None:
     args = parser.parse_args(sys.argv[2:])
 
     path = args.config_path
-    config_file_path = _get_config_file_path(path, logger)
+    config_file_path = get_config_file_path(path, logger)
     set_hull_with_config(config_file_path, logger)
 
     countdown = args.countdown

@@ -5,10 +5,11 @@ from spaceship.hull.server.native import NativeServer
 
 
 class Hull(containers.DeclarativeContainer):
+
     config = providers.Configuration()
 
     server = providers.Selector(
-        config.server.server_name,
+        config.server.name,
         native=providers.Singleton(NativeServer),
         gunicorn=providers.Singleton(GunicornWrapper)
     )
