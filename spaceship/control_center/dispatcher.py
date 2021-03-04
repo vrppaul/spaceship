@@ -2,6 +2,7 @@ import argparse
 import logging
 import sys
 
+from spaceship.assembly import assemble
 from spaceship.launchpad import launch
 
 
@@ -24,6 +25,8 @@ def control() -> None:
         _subparsers = parser.add_subparsers()
         if command == "launch":
             launch(parser=_subparsers.add_parser("launch"), logger=_logger.getChild("LAUNCHER"))
+        elif command == "assemble":
+            assemble(parser=_subparsers.add_parser("assembler"), logger=_logger.getChild("ASSEMBLER"))
     else:
         parser.add_argument("command", choices=COMMANDS, nargs="?",
                             help="Give a direct command to your ship.")

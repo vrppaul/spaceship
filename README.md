@@ -13,6 +13,12 @@
 2) 
     - Launch the project with `spaceship launch` (try `spaceship launch --help` for additional setup)
     - Get the list of commands with `spaceship`
+    
+    
+# 🔧 Developing the project
+To build and run the project in the editable mode: 
+1) create new virtual environment `python3 -m venv venv` and activate it `source venv/bin/activate`
+2) Install the project in the editable mode from the project root `pip install -e .`
 
 
 ## List of emojies to prettify commits
